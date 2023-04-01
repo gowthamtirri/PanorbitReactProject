@@ -1,0 +1,38 @@
+.sidebar {
+  width: 270px;
+  background: linear-gradient(to bottom left, #395ac8, #6139c8);
+  min-height: 90vh;
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.navlinks {
+  list-style: none;
+  width: 100%;
+}
+.navlinks a {
+  text-decoration: none;
+  color: #a5a5e4;
+  font-size: 18px;
+}
+.navlinks li {
+  position: relative;
+  padding: 15px 0;
+  border-bottom: 0.5px solid #a5a5e4;
+}
+.active {
+  position: absolute;
+  right: -35%;
+  transform: translateX(-50%);
+  top: 8px;
+  background: white;
+  padding: 6px 10px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 10%;
+}
