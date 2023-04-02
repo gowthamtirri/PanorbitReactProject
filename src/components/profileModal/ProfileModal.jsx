@@ -1,5 +1,4 @@
 import "./profileModal.css";
-import { UserList } from "../../components";
 import { Link } from "react-router-dom";
 
 const ProfileModal = ({ activeUser, users, modalOpened }) => {
@@ -11,7 +10,17 @@ const ProfileModal = ({ activeUser, users, modalOpened }) => {
         <p className="userEmail">{activeUser.email}</p>
       </div>
       <div className="otherUsers">
-        <UserList users={users} />
+        <ul className="users">
+          {users.map(
+            (user) =>
+              activeUser.id !== user.id && (
+                <li key={user.id}>
+                  <img width="35px" src={user.profilepicture} alt="" />
+                  <p>{user.name}</p>
+                </li>
+              )
+          )}
+        </ul>
       </div>
       <div className="signOut">
         <Link to={"/"} className="signOutBtn">

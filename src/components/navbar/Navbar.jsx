@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchActiveUser } from "../../pages/profilePage/singleUserSlice";
-import { ProfileModal } from "../../components";
+import { Loading, ProfileModal } from "../../components";
 import { fetchUsers } from "../../pages/landingPage/usersSlice";
 
 const Navbar = ({ pageTitle }) => {
@@ -17,11 +17,9 @@ const Navbar = ({ pageTitle }) => {
   const profileInfoRef = useRef();
 
   // retrive active user from store
-  const activeUser = useSelector((state) => state.activeUser.activeUser);
-  // retrive users from store and removes activeUser to display in other usersList
-  const users = useSelector((state) =>
-    state.users.users.filter((user) => user.id !== activeUser.id)
-  );
+  const { activeUser, loading } = useSelector((state) => state.activeUser);
+  // retrive users from store
+  const users = useSelector((state) => state.users.users);
 
   useEffect(() => {
     // fetchUsers get the data of all users
@@ -47,27 +45,30 @@ const Navbar = ({ pageTitle }) => {
   }, [dispatch, id]);
 
   return (
-    <div className="navbar">
-      <h3 className="PageTitle">{pageTitle}</h3>
-      <div className="userProfile">
-        <div
-          className="activeUserInfo"
-          onClick={() => setModalOpened((state) => !state)}
-          ref={profileInfoRef}
-        >
-          <img width="35px" src={activeUser.profilepicture} alt="" />
-          <p className="userName">{activeUser.name}</p>
-        </div>
+    <>
+      {loading && <Loading />}
+      <div className="navbar">
+        <h3 className="PageTitle">{pageTitle}</h3>
+        <div className="userProfile">
+          <div
+            className="activeUserInfo"
+            onClick={() => setModalOpened((state) => !state)}
+            ref={profileInfoRef}
+          >
+            <img width="35px" src={activeUser.profilepicture} alt="" />
+            <p className="userName">{activeUser.name}</p>
+          </div>
 
-        <div className="profileModalWrapper" ref={modalRef}>
-          <ProfileModal
-            activeUser={activeUser}
-            users={users}
-            modalOpened={modalOpened}
-          />
+          <div className="profileModalWrapper" ref={modalRef}>
+            <ProfileModal
+              activeUser={activeUser}
+              users={users}
+              modalOpened={modalOpened}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

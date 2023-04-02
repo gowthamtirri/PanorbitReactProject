@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUsers } from "./usersSlice";
 import { SkeletonLoading, UserList } from "../../components";
-import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   const { users, loading } = useSelector((state) => state.users);

@@ -25,7 +25,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <ul className="navlinks">
-        <Link to={`/profile/1`}>
+        <Link to={`/profile/${id}`}>
           <li
             style={{ color: `${active === "profile" ? "white" : "#a5a5e4"}` }}
           >
