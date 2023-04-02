@@ -1,9 +1,8 @@
+import "./profile.css";
+import { Dashboard } from "../../components";
+
 const Profile = () => {
-  return (
-    <div pageTitle="Profile">
-      <h4>Profile Page</h4>
-    </div>
-  );
+  return <Dashboard pageTitle={"Profile"}></Dashboard>;
 };
 
 export default Profile;

@@ -1,10 +1,26 @@
 import "./sidebar.css";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
 
 const Sidebar = () => {
-  const [active, setActive] = useState("profile");
+  const [active, setActive] = useState("");
+
+  const { id } = useParams("id");
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/profile/" + id) {
+      setActive("profile");
+    } else if (path.includes("/profile/" + id + "/posts")) {
+      setActive("posts");
+    } else if (path.includes("/profile/" + id + "/gallery")) {
+      setActive("gallery");
+    } else if (path.includes("/profile/" + id + "/todo")) {
+      setActive("todo");
+    }
+  }, [location, id]);
 
   return (
     <div className="sidebar">
@@ -12,54 +28,46 @@ const Sidebar = () => {
         <Link to={`/profile/1`}>
           <li
             style={{ color: `${active === "profile" ? "white" : "#a5a5e4"}` }}
-            onClick={() => setActive("profile")}
           >
             Profile
             {active === "profile" && (
               <div className="active">
-                <AiOutlineRight color="#BDC5D4" stroke-width="50" />
+                <AiOutlineRight color="#BDC5D4" strokeWidth="50" />
               </div>
             )}
           </li>
         </Link>
 
-        <Link to={`/profile/1`}>
-          <li
-            style={{ color: `${active === "posts" ? "white" : "#a5a5e4"}` }}
-            onClick={() => setActive("posts")}
-          >
+        <Link to={`/profile/${id}/posts`}>
+          <li style={{ color: `${active === "posts" ? "white" : "#a5a5e4"}` }}>
             Posts
             {active === "posts" && (
               <div className="active">
-                <AiOutlineRight color="#BDC5D4" stroke-width="50" />
+                <AiOutlineRight color="#BDC5D4" strokeWidth="50" />
               </div>
             )}
           </li>
         </Link>
 
-        <Link to={`/profile/1`}>
+        <Link to={`/profile/${id}/gallery`}>
           <li
             style={{ color: `${active === "gallery" ? "white" : "#a5a5e4"}` }}
-            onClick={() => setActive("gallery")}
           >
             Gallery
             {active === "gallery" && (
               <div className="active">
-                <AiOutlineRight color="#BDC5D4" stroke-width="50" />
+                <AiOutlineRight color="#BDC5D4" strokeWidth="50" />
               </div>
             )}
           </li>
         </Link>
 
-        <Link to={`/profile/1`}>
-          <li
-            style={{ color: `${active === "todo" ? "white" : "#a5a5e4"}` }}
-            onClick={() => setActive("todo")}
-          >
+        <Link to={`/profile/${id}/todo`}>
+          <li style={{ color: `${active === "todo" ? "white" : "#a5a5e4"}` }}>
             ToDo
             {active === "todo" && (
               <div className="active">
-                <AiOutlineRight color="#BDC5D4" stroke-width="50" />
+                <AiOutlineRight color="#BDC5D4" strokeWidth="50" />
               </div>
             )}
           </li>
