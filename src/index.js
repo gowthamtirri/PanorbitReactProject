@@ -11,6 +11,7 @@ const root = ReactDom.createRoot(document.getElementById("root"));
 
 root.render(
   <StrictMode>
+    {/* Provide Redux Store to the Application */}
     <Provider store={store}>
       <App />
     </Provider>
