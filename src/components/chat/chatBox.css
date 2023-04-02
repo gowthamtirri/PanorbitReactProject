@@ -37,6 +37,7 @@
   display: none;
   height: 250px;
   overflow-y: scroll;
+  font-size: 14px;
 }
 .chatUsers::-webkit-scrollbar {
   width: 0.4em;
@@ -53,7 +54,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-right: 5px;
+  padding-right: 12px;
 }
 .chatUser {
   padding: 5px 15px;
@@ -70,10 +71,10 @@
   height: 8px;
   border-radius: 50%;
 }
-.online:nth-child(1) {
-  background: gray;
+.online.gray {
+  background: #bcbcbc;
 }
 
-.online:nth-child(2) {
-  background: green;
+.online.green {
+  background: #0fbb3d;
 }

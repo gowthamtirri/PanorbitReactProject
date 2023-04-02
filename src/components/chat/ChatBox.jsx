@@ -45,7 +45,7 @@ const ChatBox = () => {
         <div className="chatUsersWrapper">
           <div className={`chatUsers ${chatBoxActive && "usersBoxActive"}`}>
             {/* display user's to initiate Chat */}
-            {users.map((user) => (
+            {users.map((user, index) => (
               <div key={user.id} className="chatUserWrapper">
                 <div
                   className="chatUser"
@@ -54,7 +54,10 @@ const ChatBox = () => {
                   <img width={"30px"} src={user?.profilepicture} alt="" />
                   <p>{user?.name}</p>
                 </div>
-                <div className="online"></div>
+                {/* Index is kind of place holder for online Status of User (Agent) */}
+                <div
+                  className={`online ${index % 2 === 0 ? "gray" : "green"}`}
+                ></div>
               </div>
             ))}
           </div>
