@@ -47,3 +47,8 @@
   cursor: pointer;
   text-decoration: none;
 }
+@media only screen and (max-width: 750px) {
+  .profileModal {
+    right: -10%;
+  }
+}

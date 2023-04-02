@@ -85,3 +85,15 @@
   font-weight: bold;
   color: #545454;
 }
+
+@media only screen and (max-width: 750px) {
+  .userAddress {
+    margin-top: 20px;
+    border-top: 0.5px solid gray;
+    padding: 0;
+  }
+  .userAddress p {
+    text-align: center;
+    margin-top: 10px;
+  }
+}

@@ -1,11 +1,14 @@
 import "./sidebar.css";
 import { useState, useEffect } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
-import { AiOutlineRight } from "react-icons/ai";
+import { AiOutlineRight, AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 const Sidebar = () => {
   // To handle sidebar Active Link
   const [active, setActive] = useState("");
+
+  // MobileSidebar Active
+  const [mobileSidebarActive, setMobileSidebarActive] = useState(false);
 
   // Get user id
   const { id } = useParams("id");
@@ -27,7 +30,13 @@ const Sidebar = () => {
   }, [location, id]);
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${mobileSidebarActive && "MobileSidebarActive"}`}>
+      <div
+        className="menu-icon"
+        onClick={() => setMobileSidebarActive((state) => !state)}
+      >
+        {!mobileSidebarActive ? <AiOutlineMenu /> : <AiOutlineClose />}
+      </div>
       <ul className="navlinks">
         {/* This navigate's to userProfile */}
         <Link to={`/profile/${id}`}>

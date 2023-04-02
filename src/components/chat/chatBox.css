@@ -78,3 +78,13 @@
 .online.green {
   background: #0fbb3d;
 }
+
+@media only screen and (max-width: 750px) {
+  .chatBox {
+    width: 180px;
+  }
+  .chatContainer {
+    right: 10px;
+    bottom: 5px;
+  }
+}

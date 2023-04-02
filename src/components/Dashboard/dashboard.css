@@ -1,6 +1,7 @@
 .dashboard {
   padding: 50px;
   margin-bottom: 70px;
+  overflow-x: hidden;
 }
 main {
   margin-left: 280px;
@@ -10,5 +11,6 @@ main {
   main {
     margin-left: 0px;
     width: 100%;
+    padding: 0;
   }
 }
