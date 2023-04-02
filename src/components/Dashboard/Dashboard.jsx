@@ -1,7 +1,8 @@
 import "./dashboard.css";
-import { Sidebar, Navbar } from "../../components";
+import { Sidebar, Navbar, ChatBox } from "../../components";
 
 const Dashboard = ({ children, pageTitle }) => {
+  // Layout for Dashboard - renders sidebar, Navigation and Main content
   return (
     <div className="dashboard">
       <Sidebar />
@@ -9,6 +10,7 @@ const Dashboard = ({ children, pageTitle }) => {
         <Navbar pageTitle={pageTitle} />
         {children}
       </main>
+      <ChatBox />
     </div>
   );
 };

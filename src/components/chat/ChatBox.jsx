@@ -6,12 +6,15 @@ import { useSelector } from "react-redux";
 import ChatMessageBox from "./ChatMessageBox";
 
 const ChatBox = () => {
+  // To Handle Chat Box and Message box open and close
   const [chatBoxActive, setChatBoxActive] = useState(false);
   const [messageBoxActive, setMessageBoxActive] = useState(false);
-
+  // This is the user in chat message box (Agent)
   const [inboxUser, SetInboxUser] = useState("");
-
+  //get users from store to display in chat box
   const users = useSelector((state) => state.users.users);
+
+  // handles Message Inbox open and set agent in chat
   const handleChatUserClick = (user) => {
     setMessageBoxActive((state) => !state);
     SetInboxUser(user);
@@ -19,6 +22,7 @@ const ChatBox = () => {
 
   return (
     <div className="chatContainer">
+      {/* Chat Message box is displayed if chatBox is Active*/}
       {messageBoxActive && chatBoxActive && <ChatMessageBox user={inboxUser} />}
 
       <div className="chatBox">
@@ -30,6 +34,7 @@ const ChatBox = () => {
             <RxChatBubble size={22} />
             <p>Chats</p>
           </div>
+          {/* Dispaly arrow UP if chat is closed, DownArrow if chat opened */}
           {!chatBoxActive ? (
             <MdKeyboardArrowUp size={25} />
           ) : (
@@ -39,6 +44,7 @@ const ChatBox = () => {
 
         <div className="chatUsersWrapper">
           <div className={`chatUsers ${chatBoxActive && "usersBoxActive"}`}>
+            {/* display user's to initiate Chat */}
             {users.map((user) => (
               <div key={user.id} className="chatUserWrapper">
                 <div

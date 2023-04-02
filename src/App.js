@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LandingPage, Profile, ToDo, Gallery, Posts } from "./pages";
-import { NotFound, ChatBox } from "./components";
+import { NotFound } from "./components";
 
 const App = () => (
   <BrowserRouter>
@@ -13,7 +13,6 @@ const App = () => (
 
       <Route path="*" element={<NotFound />} />
     </Routes>
-    <ChatBox />
   </BrowserRouter>
 );
 

@@ -60,6 +60,7 @@ const Navbar = ({ pageTitle }) => {
           </div>
 
           <div className="profileModalWrapper" ref={modalRef}>
+            {/* Profile Modal, display Active User Detail's, Other Users list and Logout option */}
             <ProfileModal
               activeUser={activeUser}
               users={users}

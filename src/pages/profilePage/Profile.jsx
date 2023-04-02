@@ -7,16 +7,20 @@ import { useParams } from "react-router-dom";
 import { fetchActiveUser } from "../../pages/profilePage/singleUserSlice";
 
 const Profile = () => {
+  // get ActiveUser from Store
   const user = useSelector((state) => state.activeUser.activeUser);
 
+  // Get Required user Id
   const { id } = useParams();
   const dispatch = useDispatch();
 
+  // Fetch data of required user using ID
   useEffect(() => {
     dispatch(fetchActiveUser(id));
   }, [dispatch, id]);
 
   return (
+    // Children inside Dashboard will be render inside Main content by Dashboard Component
     <Dashboard pageTitle={"Profile"}>
       <div className="profileContent">
         <div className="userDetails">

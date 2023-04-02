@@ -1,3 +1,4 @@
+// Default import's of all the components's - (reduces import statement's)
 export { default as SkeletonLoading } from "./loading/SkeletonLoading";
 export { default as Sidebar } from "./sidebar/Sidebar";
 export { default as Dashboard } from "./Dashboard/Dashboard";

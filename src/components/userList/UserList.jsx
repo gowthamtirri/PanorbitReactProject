@@ -2,6 +2,7 @@ import "./userList.css";
 import { Link } from "react-router-dom";
 
 const UserList = ({ users }) => {
+  // Render's List of user's
   return (
     <ul className="users">
       {users.map((user) => (

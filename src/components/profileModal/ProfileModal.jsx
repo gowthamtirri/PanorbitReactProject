@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const ProfileModal = ({ activeUser, users, modalOpened }) => {
   return (
+    // display and hide model based on state
     <div className={`profileModal ${modalOpened && "active"}`}>
       <div className="activeUserProfile">
         <img width="100px" src={activeUser.profilepicture} alt="" />
@@ -11,6 +12,7 @@ const ProfileModal = ({ activeUser, users, modalOpened }) => {
       </div>
       <div className="otherUsers">
         <ul className="users">
+          {/* Display list of other user's */}
           {users.map(
             (user) =>
               activeUser.id !== user.id && (

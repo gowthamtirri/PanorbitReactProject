@@ -5,7 +5,7 @@ const initialState = {
   users: [],
 };
 
-// Define your async thunk
+// Fetches user's from api, using thunk middleware - (implicity creates actions for API call pending, fullfiilled and rejected)
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
   const response = await fetch(`https://panorbit.in/api/users.json`);
   const data = await response.json();

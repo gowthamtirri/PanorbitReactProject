@@ -5,9 +5,11 @@ import { fetchUsers } from "./usersSlice";
 import { SkeletonLoading, UserList } from "../../components";
 
 const LandingPage = () => {
+  // get users and loading status from store
   const { users, loading } = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
+  // This will fetch user's from api after component mount
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
@@ -18,6 +20,7 @@ const LandingPage = () => {
         <div className="title">
           <h4>Select an account</h4>
         </div>
+        {/* Show's Skeleton Loading, while the request is pending */}
         {loading ? (
           <SkeletonLoading />
         ) : (

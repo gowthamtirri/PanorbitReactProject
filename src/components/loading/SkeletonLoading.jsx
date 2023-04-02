@@ -1,6 +1,7 @@
 import "./laoding.css";
 
 const UserSkeletonLoading = () => {
+  // Skeleton Loading - (To make feel user engaging and visualzing something is loading)
   return (
     <div className="users">
       <li className="user skeleton">
