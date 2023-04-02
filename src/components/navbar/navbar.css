@@ -17,9 +17,12 @@
   border-radius: 50%;
 }
 .userProfile {
+  padding: 10px;
+  position: relative;
+}
+.activeUserInfo {
   display: flex;
   align-items: center;
-  padding: 10px;
   cursor: pointer;
 }
 .userProfile img {

@@ -26,7 +26,6 @@ const singleUserSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchActiveUser.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.activeUser = action.payload;
         state.loading = false;
       })

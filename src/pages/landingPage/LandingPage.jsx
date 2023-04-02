@@ -2,7 +2,7 @@ import "./landingPage.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUsers } from "./usersSlice";
-import { SkeletonLoading } from "../../components";
+import { SkeletonLoading, UserList } from "../../components";
 import { Link } from "react-router-dom";
 
 const LandingPage = () => {
@@ -23,16 +23,7 @@ const LandingPage = () => {
           <SkeletonLoading />
         ) : (
           <div className="users-wrapper">
-            <ul className="users">
-              {users.map((user) => (
-                <Link key={user.id} to={`/profile/${user.id}`}>
-                  <li>
-                    <img width="35px" src={user.profilepicture} alt="" />
-                    <p>{user.name}</p>
-                  </li>
-                </Link>
-              ))}
-            </ul>
+            <UserList users={users} />
           </div>
         )}
       </div>
